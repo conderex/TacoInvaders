@@ -1,0 +1,64 @@
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+
+public class Window extends JFrame implements ActionListener {
+
+	private JButton pausa;
+	private boolean pause;
+	private JButton mejorPuntaje;
+	private JTextField tex;
+	private MyCanvasMain micanvas;
+	private MyCanvas mc;
+	private JPanel miPanel;
+	
+	public Window(){
+		setLayout(new BorderLayout());
+		pausa=new JButton("pausa");
+		pausa.addActionListener(this);
+		mejorPuntaje= new JButton("mejor Puntaje");
+		mejorPuntaje.addActionListener(this);
+		tex= new JTextField();
+		miPanel= new JPanel();
+		miPanel.add(pausa, mejorPuntaje);
+		tex.addActionListener(this);
+		
+		micanvas= new MyCanvasMain();
+		add(micanvas, BorderLayout.CENTER);
+		add(miPanel, BorderLayout.NORTH);
+		
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent a) {
+		// TODO Auto-generated method stub
+		
+		if(a.getSource()==pausa){
+			micanvas.setPause(true);
+			pause=true;
+			micanvas.setTex("pulsa space para empezar");
+			repaint();
+			
+		}
+		if(a.getSource()==mejorPuntaje){   
+			/*
+			 * Pregunte a la maestra y dice que 
+			 * 
+			 */
+	
+			micanvas.setTex(mc.get.Taco.getPuntaje());
+			repaint();
+		}
+		
+	}
+	public boolean getPause(){
+		return pause;
+	}
+}
