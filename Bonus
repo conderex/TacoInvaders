@@ -1,0 +1,25 @@
+import java.awt.Graphics;
+
+/*
+ * @author Andre y roger 
+ * clase padre de todas las clases que le dan beneficio al usuario
+ */
+public class Bonus extends Object {
+
+	private int gas;
+	
+	public Bonus(int x, int y){
+		super(x,y);
+		gas=10;
+	}
+
+	public int getGas() {
+		return gas;
+	}
+
+	public void setGas(int gas) {
+		this.gas = gas;
+	}
+	
+	
+}
