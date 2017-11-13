@@ -1,0 +1,39 @@
+
+public class Enemy extends Object {
+	private int x;
+	private int y;
+	private int dmg;
+	private int a;
+	
+	public Enemy(int posX, int posY){
+		super(posX,posY);
+		int dmg=17;
+		
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public int getDmg() {
+		return dmg;
+	}
+
+	public void setDmg(int dmg) {
+		this.dmg = dmg;
+	}
+	
+
+}
