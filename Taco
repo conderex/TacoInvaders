@@ -1,0 +1,91 @@
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+/**
+ * es el objeto que el usuario va a mover
+ * @author andre y roger
+ *@version 1.0
+ */
+
+public class Taco {
+
+	private int vida;
+	private int x;
+	private int y;
+	private int gas;
+	private int puntaje;
+	private String nomImagen;
+	private int tamaño;
+	private BufferedImage imagen;
+	
+	public Taco(int x,int y){
+		/*
+		 * el constructor
+		 * @param x posicion en x
+		 * @param y posicion en y
+		 * 
+		 */
+		vida=100;
+		this.x=x;
+		this.y=y;
+		tamaño=70;
+		gas=100;
+		String nomImagen= "taco.jpg";
+			File archImagen= new File(nomImagen);
+			try{
+				imagen=ImageIO.read(archImagen);
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+		
+	}
+	public void adGas(int gas){
+		/*
+		 * agrega el combustible al taco mientras que el tanque no este lleno
+		 * @param gas es el combustible del taco
+		 */
+		if(gas<100){
+			this.gas=gas+gas;
+		}
+		
+	}
+	public void move(int a, int b){
+		/*
+		 * le da movimiento al objeto dejando que solo se mueve en los 400 pizeles de la pantalla
+		 * @param a es el movimiento en x
+		 * @param b es el movimiento en y
+		 * 		 * 
+		 */
+		if(400>x+a&&0<x+a){
+			x=x+a;
+			y=y+b;
+		}
+		
+	}
+	public boolean damage(int d){
+		/*
+		 * le aplica el daño disminuyendo la vida del taco 
+		 * comprueba si el taco le queda suficiente vida para seguir
+		 * @param el daño que el taco va a recibir
+		 */
+		if(vida-d>0){
+			this.vida=vida-d;
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public void paint(Graphics g){
+		/*
+		 * dibuja la imagen en el programa 
+		 */
+		g.drawImage(imagen, x,y,tamaño,tamaño,null);
+		
+	}
+	
+}
