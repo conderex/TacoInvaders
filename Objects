@@ -1,0 +1,26 @@
+import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+public class Objects {
+
+	private ArrayList <Object> lista;
+	
+	public Objects(){
+		lista= new ArrayList <Object>(5);
+	}
+	public void addO(Object o){
+		lista.add(o);
+	}
+	public void removeO(Object o){
+		lista.remove(o);
+	}
+	public void paint(Graphics g){
+		ListIterator <Object> apt=lista.listIterator();
+		Object o;
+		while(apt.hasNext()){
+			o=apt.next();
+			o.paint(g);
+		}
+	}
+}
