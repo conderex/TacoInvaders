@@ -1,0 +1,35 @@
+import java.awt.Canvas;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Timer;
+import java.util.Timer;
+
+public class MyCanvas extends Canvas implements ActionListener{
+
+	private Taco taco;
+	private Timer t;
+	private Timer tt;
+	private Object Taco;
+	
+	
+	
+	
+	public MyCanvas(){
+		super();
+		taco= new Taco(200,650);
+		t= new Timer(20, this);
+	}
+
+	public Taco getT(){
+		return taco;
+	}
+
+
+
+	@Override
+	public void actionPerformed(ActionEvent a) {
+		// TODO Auto-generated method stub
+		
+	}
+}
