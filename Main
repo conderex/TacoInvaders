@@ -1,0 +1,25 @@
+import javax.swing.JFrame;
+
+public class Main {
+
+	public static void main(String args[]){
+		Window v1= new Window();
+		Window v2= new Window();
+		
+		if(v1.getPause()){
+			
+			v1.setSize(400,700);
+			v1.setVisible(true);
+			v2.setVisible(false);
+			v1.setResizable(false);
+			v1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		}else{
+			
+			v2.setSize(400,700);
+			v2.setVisible(true);
+			v1.setVisible(false);
+			v2.setResizable(false);
+			v2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		}
+	}
+}
