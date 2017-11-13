@@ -1,0 +1,126 @@
+import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.Random;
+
+import javax.imageio.ImageIO;
+
+public class MyCanvasMain extends Canvas implements KeyListener{
+
+	private BufferedImage imagen;
+	private String nombre;
+	private String tex;
+	private int puntaje;
+	private boolean pause;
+	private Color c;
+	private Random r;
+	
+	
+	public MyCanvasMain(){
+		super();
+		tex="pulsa space para empezar";
+		nombre="fondoMain.gif";
+		File archImagen=new File(nombre);
+		try{
+			imagen=ImageIO.read(archImagen);
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	public void paint(Graphics g){
+		c= new Color(r.nextInt(250),r.nextInt(250),r.nextInt(250));
+		g.setColor(c);
+		g.drawString(tex, 200, 350);
+	}
+	
+	
+	
+	
+	@Override
+	public void keyPressed(KeyEvent k) {
+		// TODO Auto-generated method stub
+		if(k.getKeyCode()==KeyEvent.VK_SPACE){
+			System.out.println("space");
+			pause=false;
+			
+		}
+	}
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void keyTyped(KeyEvent k) {
+		// TODO Auto-generated method stub
+		if(k.getKeyCode()==KeyEvent.VK_SPACE){
+			System.out.println("space");
+			pause=false;
+		}
+	}
+	public BufferedImage getImagen() {
+		return imagen;
+	}
+	public void setImagen(BufferedImage imagen) {
+		this.imagen = imagen;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public boolean isPause() {
+		return pause;
+	}
+	public void setPause(boolean pause) {
+		this.pause = pause;
+	}
+
+
+
+	public String getTex() {
+		return tex;
+	}
+
+
+
+	public void setTex(String tex) {
+		this.tex = tex;
+	}
+
+
+
+	public int getPuntaje() {
+		return puntaje;
+	}
+
+
+
+	public void setPuntaje(int puntaje) {
+		this.puntaje = puntaje;
+	}
+
+
+
+	public Color getC() {
+		return c;
+	}
+
+
+
+	public void setC(Color c) {
+		this.c = c;
+	}
+	
+
+	
+}
