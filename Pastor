@@ -1,0 +1,41 @@
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+/*
+ * @author Andre y roger
+ */
+public class Pastor extends Bonus{
+
+	private BufferedImage imagen;
+	private String nombreI;
+	private int tamaño;
+	
+	public Pastor(int x, int y) {
+		/*
+		 * @paramater x posicion en x
+		 * @paramater y posicion en y
+		 * constructor de el bonus pastor 
+		 */
+		super(x, y);
+		tamaño=30;
+		nombreI="pastor.jpg";
+		File archImagen= new File(nombreI);
+		try{
+			imagen= ImageIO.read(archImagen);
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+	
+	}
+	public void paint(Graphics g){
+		/*
+		 * Graphica la imagen del objeto
+		 */
+		g.drawImage(imagen, x, y, tamaño, tamaño, null);
+	}
+
+}
